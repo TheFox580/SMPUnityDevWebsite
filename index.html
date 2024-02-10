@@ -1,62 +1,101 @@
-<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="styles.css">
-        <title>Ah yes developpement</title>
+        <title>SMPU incredible developpement website</title>
     </head>
-    <body style="background-color: powderblue;">
-        <h1 style="background-color: powderblue; color: blue; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 300%; text-align: center;">This is a Heading.</h1>
-        <p style="background-color: tomato; color: red; font-family: 'Courier New', Courier, monospace; font-size: 160%; text-align: center;">This is a paragraph.</p>
+    <body>
+        <h1>PLEASE WAIT 2 SECONDS BEFORE PRESSING A BUTTON I NEED GOOGLE SHEETS TO UPDATE :)</h1>
+        <script>
 
-        <b>This text is bold</b>
-        <strong>This text is important!</strong>
-        <i>This text is italic</i>
-        <em>This text is emphasized</em>
-        <small>This is some smaller text</small>
+            fetch("https://sheetdb.io/api/v1/seqwd5cxb9ovv/?name=bug_found")
+                .then(res => {
+                    return res.json();
+                }).then(data => {
+                    data.forEach(user =>{
+                        var value = user.value;
+                        document.getElementById("clicks").innerHTML = parseInt(value);
+                    }
+                    )
+                }
+                )
 
-        <p>Do not forget to buy <mark>milk</mark> today.</p>
-        <p>My favourite color is <del>blue</del> red.</p>
-        <p>My favourite color is <del>blue</del> <ins>red</ins>.</p>
-        <p>This is <sub>subscripted</sub> text.</p>
-        <p>This is <sup>superscripted</sup> text.</p>
-        <br>
-        <p>Here is a quote from WWF's website</p>
-        <blockquote cite="http://www.worldwildlife.org/who/index.html">
-            For more than 60 years, WWF has worked to help people and nature thrive.As the world's leading conservation organization, WWF works in nearly 100 countries. At every level, we collaborate with people around the world to develop and deliver innovative solutions that protect communities, wildlife, and the places in which they live.
-        </blockquote>
-        <p>WWF's goal is to :<q>Build a future where people live in harmony with nature</q></p>
-        <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948</p>
+            function addBug() {
+                fetch("https://sheetdb.io/api/v1/seqwd5cxb9ovv/?name=bug_found")
+                .then(res => {
+                    return res.json();
+                }).then(data => {
+                    data.forEach(user =>{
+                        var value = user.value;
+                        clicks = parseInt(value);
+                        clicks += 1;
+                        document.getElementById("clicks").innerHTML = clicks;
 
-        <address>
-            Written by John Doe.<br>
-            Visit us at:<br>
-            Example.com<br>
-            Box 564, Disneyland<br>
-            USA
-        </address>
-        <p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>
-        <bdo dir="rtl">This text will be written from right to left</bdo>
+                        const newValue = {
+                            value: clicks
+                        }
 
-        <!-- This is a comment-->
+                        fetch("https://sheetdb.io/api/v1/seqwd5cxb9ovv/name/bug_found", {
+                        method: "PUT",
+                        headers: {
+                            "Content-type": "application/json",
+                        },
+                        body: JSON.stringify(newValue)
+                        }).then(res => {
+                            if (!res.ok){
+                                console.log("Problem!");
+                                return;
+                            }
 
-        <h1 style="background-color: dodgerblue;">Hello World</h1>
-        <p style="background-color: tomato;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-        <h1 style="color: tomato;">Hello World</h1>
-        <p style="color: dodgerblue;">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-        <p style="color: mediumseagreen;">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-        <br>
-        <h1 style="border:2px solid tomato;">Hello World</h1>
-        <h1 style="border:2px solid dodgerblue">Hello World</h1>
-        <h1 style="border:2px solid violet">Hello World</h1>
+                            return res.json()
+                        }).then(data => {
+                            console.log("Success!");
+                        }).catch(error => {
+                            console.log(error);
+                        })
+                    })
+                }).catch(error => console.log(error));
 
-        <h1 style="background-color:rgb(255, 99, 71);">...</h1>
-        <h1 style="background-color:#ff6347;">...</h1>
-        <h1 style="background-color:hsl(9, 100%, 64%);">...</h1>
+                };
+            function removeBug() {
+                fetch("https://sheetdb.io/api/v1/seqwd5cxb9ovv/")
+                .then(res => {
+                    return res.json();
+                }).then(data => {
+                    data.forEach(user =>{
+                        var value = user.value;
+                        clicks = parseInt(value);
+                        clicks -= 1;
+                        document.getElementById("clicks").innerHTML = clicks;
 
-        <h1 style="background-color:rgba(255, 99, 71, 0.5);">...</h1>
-        <h1 style="background-color:hsla(9, 100%, 64%, 0.5);">...</h1>
+                        const newValue = {
+                            value: clicks
+                        }
 
-        <h1 style="color: blue;">A Blue Heading</h1>
-        <p style="color: red;">A red paragraph</p>
+                        fetch("https://sheetdb.io/api/v1/seqwd5cxb9ovv/name/bug_found", {
+                        method: "PUT",
+                        headers: {
+                            "Content-type": "application/json",
+                        },
+                        body: JSON.stringify(newValue)
+                        }).then(res => {
+                            if (!res.ok){
+                                console.log("Problem!");
+                                return;
+                            }
+
+                            return res.json()
+                        }).then(data => {
+                            console.log("Success!");
+                        }).catch(error => {
+                            console.log(error);
+                        })
+                    })
+                }).catch(error => console.log(error));
+
+                };
+        </script>
+        <button style="font-size: 300%;" type="button" onclick="addBug()">Click to add 1 bug</button>
+        <button type="button" onclick="removeBug()">Click to remove 1 bug</button>
+        <p>Bugs found : <a id="clicks">0</a></p>
     </body>
 </html>
