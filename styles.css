@@ -1,15 +1,61 @@
 body {
-    background-color: powderblue;
+    background-color: blue;
 }
 
-h1 {
-    color: blue;
+h1.infos {
+    color: rgb(255, 255, 0);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 300%;
+    font-size: 4em;
 }
 
-p {
+p.timer {
+    color: rgb(255, 255, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3em;
+}
+
+span.red {
     color: red;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 160%;
+}
+
+span.lime {
+    color: lime;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1.allowed {
+    color: lime;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3em;
+}
+
+p.count {
+    color: rgb(255, 255, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3em;
+}
+
+span.adv-count {
+    color: rgb(255, 255, 0);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+}
+
+p.allowed{
+    color: lime;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2em;
+}
+
+h1.blocked {
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 3em;
+}
+
+p.blocked{
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2em;
 }
