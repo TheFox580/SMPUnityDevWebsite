@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: blue;
+            }
+
+            h1.infos {
+                color: rgb(255, 255, 0);
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 4em;
+            }
+
+            p.timer {
+                color: rgb(255, 255, 0);
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 3em;
+            }
+
+            span.red {
+                color: red;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            span.lime {
+                color: lime;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+
+            h1.allowed {
+                color: lime;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 3em;
+            }
+
+            p.count {
+                color: rgb(255, 255, 0);
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 3em;
+            }
+
+            span.adv-count {
+                color: rgb(255, 255, 0);
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-weight: bolder;
+            }
+
+            p.allowed{
+                color: lime;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 2em;
+            }
+
+            h1.blocked {
+                color: red;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 3em;
+            }
+
+            p.blocked{
+                color: red;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: 2em;
+            }
+        </style>
+        <title>Advancement Hunt Website</title>
+    </head>
+    <body>
+        <h1 class="infos">Welcome to Solo Advancement Hunt !</h1>
+        <h1 class="blocked">Warning :</h1>
+        <p class="blocked">THIS IS NOT THE ADVANCEMENT HUNT RACE, THIS IS A SOLO WORLD</p>
+        <p class="count">Advancement count : <span class="adv-count" id="adv-count">0</span>/1099 advancements</p>
+        <script>
+            setInterval(function(){
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", "http://localhost:5000/solo_count");
+                xhr.send();
+                xhr.responseType = "json";
+                xhr.onload = () => {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    const data = xhr.response;
+                    if (document.getElementById('adv-count').innerHTML != data["adv_count"]){
+                    document.getElementById('adv-count').innerHTML = data["adv_count"]
+                    console.log("Player has " + document.getElementById('adv-count').innerHTML + " advancements")
+                    }
+                } else {
+                    console.log(`Error: ${xhr.status}`);
+                }
+                };
+            }, 1000)
+        </script>
+    </body>
+</html>
